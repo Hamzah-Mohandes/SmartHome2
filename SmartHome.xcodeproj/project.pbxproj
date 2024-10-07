@@ -7,16 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5B457022CB3E97100AC8EE8 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B457012CB3E97100AC8EE8 /* Home.swift */; };
+		B5B457052CB3ECBB00AC8EE8 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B457042CB3ECAE00AC8EE8 /* Device.swift */; };
+		B5B4570B2CB3ED1200AC8EE8 /* SmartHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B4570A2CB3ED1200AC8EE8 /* SmartHomeView.swift */; };
+		B5B4570D2CB3ED2100AC8EE8 /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B4570C2CB3ED2100AC8EE8 /* RoomView.swift */; };
 		CE75F2232C8B1486001AD0A3 /* SmartHomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75F2222C8B1486001AD0A3 /* SmartHomeApp.swift */; };
-		CE75F2252C8B1486001AD0A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75F2242C8B1486001AD0A3 /* ContentView.swift */; };
 		CE75F2272C8B1486001AD0A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE75F2262C8B1486001AD0A3 /* Assets.xcassets */; };
 		CE75F22A2C8B1486001AD0A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE75F2292C8B1486001AD0A3 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5B457012CB3E97100AC8EE8 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		B5B457042CB3ECAE00AC8EE8 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		B5B4570A2CB3ED1200AC8EE8 /* SmartHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHomeView.swift; sourceTree = "<group>"; };
+		B5B4570C2CB3ED2100AC8EE8 /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
 		CE75F21F2C8B1486001AD0A3 /* SmartHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE75F2222C8B1486001AD0A3 /* SmartHomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHomeApp.swift; sourceTree = "<group>"; };
-		CE75F2242C8B1486001AD0A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CE75F2262C8B1486001AD0A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE75F2292C8B1486001AD0A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,6 +38,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5B457032CB3EC9B00AC8EE8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B5B457042CB3ECAE00AC8EE8 /* Device.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B5B457062CB3ECCE00AC8EE8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B5B457092CB3ECF900AC8EE8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B5B4570A2CB3ED1200AC8EE8 /* SmartHomeView.swift */,
+				B5B4570C2CB3ED2100AC8EE8 /* RoomView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CE75F2162C8B1486001AD0A3 = {
 			isa = PBXGroup;
 			children = (
@@ -51,10 +81,13 @@
 		CE75F2212C8B1486001AD0A3 /* SmartHome */ = {
 			isa = PBXGroup;
 			children = (
+				B5B457092CB3ECF900AC8EE8 /* Views */,
+				B5B457062CB3ECCE00AC8EE8 /* ViewModels */,
+				B5B457032CB3EC9B00AC8EE8 /* Models */,
 				CE75F2222C8B1486001AD0A3 /* SmartHomeApp.swift */,
-				CE75F2242C8B1486001AD0A3 /* ContentView.swift */,
 				CE75F2262C8B1486001AD0A3 /* Assets.xcassets */,
 				CE75F2282C8B1486001AD0A3 /* Preview Content */,
+				B5B457012CB3E97100AC8EE8 /* Home.swift */,
 			);
 			path = SmartHome;
 			sourceTree = "<group>";
@@ -137,8 +170,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE75F2252C8B1486001AD0A3 /* ContentView.swift in Sources */,
+				B5B457052CB3ECBB00AC8EE8 /* Device.swift in Sources */,
+				B5B457022CB3E97100AC8EE8 /* Home.swift in Sources */,
 				CE75F2232C8B1486001AD0A3 /* SmartHomeApp.swift in Sources */,
+				B5B4570D2CB3ED2100AC8EE8 /* RoomView.swift in Sources */,
+				B5B4570B2CB3ED1200AC8EE8 /* SmartHomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
