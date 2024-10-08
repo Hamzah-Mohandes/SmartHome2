@@ -1,10 +1,3 @@
-//
-//  RoomView.swift
-//  SmartHome
-//
-//  Created by Hamzah on 07.10.24.
-//
-import SwiftUI
 import SwiftUI
 
 struct RoomView: View {
@@ -25,11 +18,10 @@ struct RoomView: View {
             }
         
             Text("Hier ist die Raumvorschau.")
-                .frame(maxWidth: .infinity, maxHeight: 800)
+                .frame(maxWidth: .infinity, maxHeight: 200)
                 .background(Color.orange) // Hintergrundfarbe
                 .cornerRadius(10)
                 .padding()
-            
         }
     }
 }
