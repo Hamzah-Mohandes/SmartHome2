@@ -2,6 +2,11 @@ import SwiftUI
 
 struct RoomView: View {
     @Binding var room: Room
+    @State private var password: String = ""
+    @State private var enteredPassword: String = ""
+    @State private var isDoorLocked: Bool = false
+    @State private var showingPasswordField: Bool = false
+    @State private var incorrectPassword: Bool = false
 
     var body: some View {
         VStack(spacing: 20) {
@@ -19,7 +24,6 @@ struct RoomView: View {
             .cornerRadius(10)
             .shadow(radius: 5)
 
-            // Türstatus
             Text("🚪 Tür ist \(room.doorClosed ? "Geschlossen" : "Offen")")
                 .font(.title)
                 .padding()
@@ -29,22 +33,44 @@ struct RoomView: View {
                 .foregroundColor(.white)
                 .shadow(radius: 5)
 
-            // Toggle für Tag/Nacht
-            Toggle(isOn: Binding(
-                get: { room.timeOfDay == .day },
-                set: { room.timeOfDay = $0 ? .day : .night; room.doorClosed = room.timeOfDay == .night }
-            )) {
-                Text(room.timeOfDay == .day ? "Wechsel zu Nacht" : "Wechsel zu Tag")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    
-            }
-            .padding()
-            .background(Color.gray.opacity(0.6))
-            .cornerRadius(10)
-            .shadow(radius: 5)
+            // Passwort-Eingabe und Überprüfung
+            if showingPasswordField {
+                SecureField("Passwort eingeben", text: $enteredPassword)
+                    .padding()
+                    .background(Color.gray.opacity(0.1))
+                    .cornerRadius(10)
+                    .padding()
 
-            // Lampensteuerung
+                Button(action: {
+                    verifyPassword()
+                }) {
+                    Text("Bestätigen")
+                        .font(.headline)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+
+                if incorrectPassword {
+                    Text("Falsches Passwort!")
+                        .foregroundColor(.red)
+                        .padding()
+                }
+            } else {
+                Button(action: {
+                    showingPasswordField = true
+                }) {
+                    Text(room.doorClosed ? "Tür öffnen" : "Tür schließen")
+                        .font(.headline)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+            }
+
+            // Lampen Status
             VStack(alignment: .leading, spacing: 10) {
                 Text("💡 Lampen")
                     .font(.title2)
@@ -66,7 +92,6 @@ struct RoomView: View {
             .cornerRadius(10)
             .shadow(radius: 5)
 
-            // Tag-/Nacht-Emoji
             Text(room.timeOfDay == .day ? "🌞" : "🌙")
                 .font(.system(size: 100))
 
@@ -76,8 +101,27 @@ struct RoomView: View {
         .navigationTitle(room.name)
         .navigationBarTitleDisplayMode(.inline)
         .background(Color.white.opacity(0.95))
+        .onAppear {
+            // Passwort nur einmal festlegen (kann später erweitert werden)
+            if password.isEmpty {
+                password = "1234" // Beispielpasswort festlegen (kann angepasst werden)
+            }
+        }
+    }
+
+    // Funktion zur Passwortüberprüfung
+    private func verifyPassword() {
+        if enteredPassword == password {
+            room.doorClosed.toggle() // Tür öffnen oder schließen
+            showingPasswordField = false // Passwortfeld ausblenden
+            incorrectPassword = false
+            enteredPassword = "" // Passwortfeld zurücksetzen
+        } else {
+            incorrectPassword = true // Passwort falsch
+        }
     }
 }
+
 #Preview {
-    RoomView(room: .constant(Room(name: "Wohnzimmer", temperature: 22, lampCount: 3, lampsOn: [false, true, false], doorClosed: false, timeOfDay: .day)))
+    RoomView(room: .constant(Room(name: "Wohnzimmer", temperature: 22, lampCount: 3, lampsOn: [false, true, false], doorClosed: false, timeOfDay: .day, season: .spring)))
 }

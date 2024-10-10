@@ -11,6 +11,8 @@
 		B5289E7E2CB7B36000AF7262 /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5289E7D2CB7B35D00AF7262 /* TimeOfDay.swift */; };
 		B5289E802CB7B39400AF7262 /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5289E7F2CB7B39100AF7262 /* RoomViewModel.swift */; };
 		B5289E842CB7B9F000AF7262 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5289E832CB7B9F000AF7262 /* ContentView.swift */; };
+		B5289E932CB7F8E200AF7262 /* TemperatureChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5289E922CB7F8DE00AF7262 /* TemperatureChartView.swift */; };
+		B5289E952CB7F90700AF7262 /* SeasonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5289E942CB7F90300AF7262 /* SeasonInfo.swift */; };
 		B5B4570D2CB3ED2100AC8EE8 /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B4570C2CB3ED2100AC8EE8 /* RoomView.swift */; };
 		CE75F2232C8B1486001AD0A3 /* SmartHomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75F2222C8B1486001AD0A3 /* SmartHomeApp.swift */; };
 		CE75F2272C8B1486001AD0A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE75F2262C8B1486001AD0A3 /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 		B5289E7D2CB7B35D00AF7262 /* TimeOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
 		B5289E7F2CB7B39100AF7262 /* RoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewModel.swift; sourceTree = "<group>"; };
 		B5289E832CB7B9F000AF7262 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B5289E922CB7F8DE00AF7262 /* TemperatureChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureChartView.swift; sourceTree = "<group>"; };
+		B5289E942CB7F90300AF7262 /* SeasonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonInfo.swift; sourceTree = "<group>"; };
 		B5B4570C2CB3ED2100AC8EE8 /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
 		CE75F21F2C8B1486001AD0A3 /* SmartHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE75F2222C8B1486001AD0A3 /* SmartHomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHomeApp.swift; sourceTree = "<group>"; };
@@ -43,6 +47,7 @@
 		B5B457032CB3EC9B00AC8EE8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B5289E942CB7F90300AF7262 /* SeasonInfo.swift */,
 				B5289E7D2CB7B35D00AF7262 /* TimeOfDay.swift */,
 				B5289E7B2CB6FA5400AF7262 /* Room.swift */,
 			);
@@ -76,6 +81,7 @@
 		CE75F2212C8B1486001AD0A3 /* SmartHome */ = {
 			isa = PBXGroup;
 			children = (
+				B5289E922CB7F8DE00AF7262 /* TemperatureChartView.swift */,
 				B5B457062CB3ECCE00AC8EE8 /* ViewModels */,
 				B5B457032CB3EC9B00AC8EE8 /* Models */,
 				CE75F2222C8B1486001AD0A3 /* SmartHomeApp.swift */,
@@ -165,11 +171,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5289E952CB7F90700AF7262 /* SeasonInfo.swift in Sources */,
 				B5289E7E2CB7B36000AF7262 /* TimeOfDay.swift in Sources */,
 				CE75F2232C8B1486001AD0A3 /* SmartHomeApp.swift in Sources */,
 				B5289E842CB7B9F000AF7262 /* ContentView.swift in Sources */,
 				B5B4570D2CB3ED2100AC8EE8 /* RoomView.swift in Sources */,
 				B5289E802CB7B39400AF7262 /* RoomViewModel.swift in Sources */,
+				B5289E932CB7F8E200AF7262 /* TemperatureChartView.swift in Sources */,
 				B5289E7C2CB6FA5800AF7262 /* Room.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
