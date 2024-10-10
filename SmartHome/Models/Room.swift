@@ -11,7 +11,7 @@ struct Room: Identifiable, Codable {
     var name: String
     var temperature: Int
     var lampCount: Int
-    var lampsOn: [Bool] // Bool Array ist Codable
+    var lampsOn: [Bool] 
     var doorClosed: Bool
     var timeOfDay: TimeOfDay
     var season: Season

@@ -4,10 +4,10 @@ import SwiftUI
 struct ContentView: View {
     @State private var rooms: [Room] = []
     @State private var roomName: String = ""
-    @State private var lampCount: Int = 1 // Lampenanzahl als Int für Stepper
+    @State private var lampCount: Int = 1
     @State private var temperature: Int = 20
-    @State private var selectedSeason: Season = .spring // Standardwert Frühling
-    @State private var showingSeasonInfo: Bool = false // Für die Anzeige von Informationen
+    @State private var selectedSeason: Season = .spring
+    @State private var showingSeasonInfo: Bool = false
     
     var body: some View {
         NavigationView {
@@ -20,17 +20,15 @@ struct ContentView: View {
                     .padding()
                     .frame(maxWidth: .infinity)
                     .background(Color.green)
-                    .cornerRadius(15)
                     .shadow(radius: 5)
                     .padding(.bottom, 20)
                 
                 TextField("Zimmername 🏠", text: $roomName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
-                    .background(Color.green.opacity(0.1))
                     .cornerRadius(8)
                 
-                // Stepper für die Lampenanzahl
+              
                 HStack {
                     Text("Anzahl der Lampen 💡: \(lampCount)")
                     Stepper(value: $lampCount, in: 1...10) {
@@ -65,7 +63,7 @@ struct ContentView: View {
                 }
                 
                 Button(action: {
-                    showingSeasonInfo = true // Setze die Anzeige auf wahr, um Informationen anzuzeigen
+                    showingSeasonInfo = true
                 }) {
                     Text("Details zur Jahreszeit anzeigen")
                         .fontWeight(.bold)
@@ -119,7 +117,7 @@ struct ContentView: View {
                 }
             }
             .navigationBarHidden(true) // Versteckt die Standard-Navigationleiste
-            .background(Color.white.ignoresSafeArea()) // Weißer Hintergrund für die gesamte Ansicht
+            .background(Color.white.ignoresSafeArea()) 
         }
     }
     

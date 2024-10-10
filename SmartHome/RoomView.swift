@@ -33,7 +33,19 @@ struct RoomView: View {
                 .foregroundColor(.white)
                 .shadow(radius: 5)
 
-            // Passwort-Eingabe und Überprüfung
+          
+            if isDoorLocked {
+                Text("🔒 Die Tür ist gesichert! 🛡️")
+                    .font(.headline)
+                    .foregroundColor(.green)
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .shadow(radius: 5)
+                    .transition(.slide) // Animation hinzufügen
+            }
+
+            
             if showingPasswordField {
                 SecureField("Passwort eingeben", text: $enteredPassword)
                     .padding()
@@ -70,7 +82,7 @@ struct RoomView: View {
                 }
             }
 
-            // Lampen Status
+     
             VStack(alignment: .leading, spacing: 10) {
                 Text("💡 Lampen")
                     .font(.title2)
@@ -92,8 +104,18 @@ struct RoomView: View {
             .cornerRadius(10)
             .shadow(radius: 5)
 
-            Text(room.timeOfDay == .day ? "🌞" : "🌙")
-                .font(.system(size: 100))
+            
+            if room.lampsOn.contains(true) {
+                Image(systemName: "sun.max.fill")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .foregroundColor(.yellow)
+            } else {
+                Image(systemName: "moon.fill")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .foregroundColor(.gray)
+            }
 
             Spacer()
         }
@@ -102,22 +124,27 @@ struct RoomView: View {
         .navigationBarTitleDisplayMode(.inline)
         .background(Color.white.opacity(0.95))
         .onAppear {
-            // Passwort nur einmal festlegen (kann später erweitert werden)
             if password.isEmpty {
-                password = "1234" // Beispielpasswort festlegen (kann angepasst werden)
+                password = "1234"
             }
         }
     }
 
-    // Funktion zur Passwortüberprüfung
     private func verifyPassword() {
         if enteredPassword == password {
-            room.doorClosed.toggle() // Tür öffnen oder schließen
-            showingPasswordField = false // Passwortfeld ausblenden
+            room.doorClosed.toggle()
+            showingPasswordField = false
             incorrectPassword = false
-            enteredPassword = "" // Passwortfeld zurücksetzen
+            enteredPassword = ""
+
+           
+            if room.doorClosed {
+                isDoorLocked = true
+            } else {
+                isDoorLocked = false
+            }
         } else {
-            incorrectPassword = true // Passwort falsch
+            incorrectPassword = true
         }
     }
 }
